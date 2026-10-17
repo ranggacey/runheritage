@@ -1,0 +1,20 @@
+/* Shimmer placeholder — gambar yg lg loading tampil shimmer, bukan kotak kosong */
+img.is-loading {
+    background: linear-gradient(110deg, #ddd5c2 30%, #f2ecdc 48%, #ddd5c2 65%);
+    background-size: 200% 100%;
+    animation: imgShimmer 1.3s linear infinite;
+    color: transparent;
+}
+
+@keyframes imgShimmer {
+    to {
+        background-position: -200% 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    img.is-loading {
+        animation: none;
+        background: #ddd5c2;
+    }
+}
