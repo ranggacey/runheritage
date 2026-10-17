@@ -1612,7 +1612,7 @@
       <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
         <button type="button" @click="faqOpen = (faqOpen === 1 ? null : 1)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
           <span>(DUMMY) Apakah seluruh finisher berhak mendapatkan medali?</span>
-          <i class="fa-solid fa-chevron-down text-[#FDF4E3] transition-all duration-300 flex-shrink-0" :class="faqOpen === 1 ? 'rotate-180 text-[#774805]' : ''"></i>
+          <i class="fa-solid fa-chevron-down text-[#FDF4E3] faq-chevron flex-shrink-0" :class="faqOpen === 1 ? 'open' : ''"></i>
         </button>
         <div x-show="faqOpen === 1" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
           (DUMMY) Ya, seluruh peserta yang menyelesaikan lomba lari sebelum batas Cut Off Time (COT) resmi berhak atas Medali Finisher eksklusif.
@@ -1623,7 +1623,7 @@
       <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
         <button type="button" @click="faqOpen = (faqOpen === 2 ? null : 2)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
           <span>(DUMMY) Apakah tiket pendaftaran dapat dipindahtangankan?</span>
-          <i class="fa-solid fa-chevron-down text-[#FDF4E3] transition-all duration-300 flex-shrink-0" :class="faqOpen === 2 ? 'rotate-180 text-[#774805]' : ''"></i>
+          <i class="fa-solid fa-chevron-down text-[#FDF4E3] faq-chevron flex-shrink-0" :class="faqOpen === 2 ? 'open' : ''"></i>
         </button>
         <div x-show="faqOpen === 2" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
           (DUMMY) Pendaftaran bersifat personal dan tidak dapat dipindahtangankan demi alasan keamanan medis serta keakuratan sistem timing chip.
@@ -1634,7 +1634,7 @@
       <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
         <button type="button" @click="faqOpen = (faqOpen === 3 ? null : 3)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
           <span>(DUMMY) Di mana lokasi penitipan barang (Drop Bag) peserta?</span>
-          <i class="fa-solid fa-chevron-down text-[#FDF4E3] transition-all duration-300 flex-shrink-0" :class="faqOpen === 3 ? 'rotate-180 text-[#774805]' : ''"></i>
+          <i class="fa-solid fa-chevron-down text-[#FDF4E3] faq-chevron flex-shrink-0" :class="faqOpen === 3 ? 'open' : ''"></i>
         </button>
         <div x-show="faqOpen === 3" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
           (DUMMY) Fasilitas Drop Bag gratis disediakan di venue area lomba mulai pendaftaran dibuka hingga seluruh rangkaian acara berakhir.
