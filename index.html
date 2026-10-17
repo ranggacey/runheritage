@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rawapening Run Heritage 2026 | Official Event Website</title>
+
+    <!-- Web Title Icon / Favicon -->
+    <link rel="icon" type="image/webp" href="assets/logo1.webp">
+    <link rel="apple-touch-icon" href="assets/logo1.webp">
+
+    <!-- Precompiled Minified Tailwind CSS (Zero Runtime Overhead, 29KB static) -->
+    <link rel="stylesheet" href="css/tailwind.min.css">
+
+    <!-- FontAwesome Icons (Local) -->
+    <link rel="stylesheet" href="css/fontawesome.min.css">
+
+    <!-- Preload Critical Local Fonts -->
+    <link rel="preload" href="font/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="font/Montserrat-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="font/impact.ttf" as="font" type="font/ttf" crossorigin>
+
+    <!-- Google Fonts Montserrat Fallback & Multi-weight Support (Non-render-blocking) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300..900;1,300..900&display=swap"></noscript>
+
+    <!-- Consolidated Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+    <style>[x-cloak] { display: none !important; }</style>
+
+</head>
+
+<body x-data="{ 
+    mobileMenu: false, 
+    registerModal: false, 
+    activeRouteTab: '10K',
+    faqOpen: null,
+    selectedCategory: '10K',
+    ticketCount: 1,
+    addOnJersey: true,
+    formSubmitted: false,
+    calcPrice() {
+        let base = 250000;
+        if(this.selectedCategory === '5K') base = 150000;
+        if(this.selectedCategory === '10K') base = 250000;
+        if(this.selectedCategory === '21K') base = 400000;
+        if(this.selectedCategory === '42K') base = 600000;
+        return (base * this.ticketCount) + (this.addOnJersey ? 75000 * this.ticketCount : 0);
+    }
+}" class="relative bg-navy text-cream antialiased selection:bg-teal selection:text-cream">
+
+    <!-- Ambient Glowing Background Bubbles (2026 Lighting) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div class="absolute -top-40 -left-40 w-[600px] h-[600px] bg-teal/20 rounded-full blur-[140px] animate-pulse-subtle"></div>
+        <div class="absolute top-1/3 -right-40 w-[500px] h-[500px] bg-amber/20 rounded-full blur-[160px]"></div>
+        <div class="absolute -bottom-40 left-1/3 w-[700px] h-[700px] bg-teal/15 rounded-full blur-[180px]"></div>
+        <div class="absolute inset-0 bg-noise-pattern opacity-60"></div>
+    </div>
+
+   
+
+ <!-- Header & Navbar Section (Using Montserrat Font & Alpine.js Animation) -->
+<header class="sticky top-0 z-50 w-full backdrop-blur-md bg-[#87CEEB]/90 border-b border-[#085C55]/20 shadow-lg font-montserrat" x-data="{ mobileMenu: false }">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- UPPER LEVEL: Centered Logo -->
+    <div class="flex items-center justify-between md:justify-center py-3 md:py-2.5 border-b border-[#FDF4E3]/10 relative">
+      <!-- Mobile Menu Toggle Button -->
+      <div class="flex md:hidden">
+        <button 
+          @click="mobileMenu = !mobileMenu" 
+          type="button" 
+          class="text-[#052132] hover:text-[#085C55] focus:outline-none transition-transform active:scale-90 p-1.5" 
+          aria-label="Toggle Menu"
+        >
+          <!-- Icon Hamburger (Saat tertutup) -->
+          <svg x-show="!mobileMenu" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <!-- Icon Close / X (Saat terbuka) -->
+          <svg x-show="mobileMenu" x-cloak class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Main Logo -->
+      <a href="#home" class="flex items-center justify-center transition-transform hover:scale-105 duration-300">
+        <img 
+          src="assets/logo1.webp" 
+          alt="Rawapening Run Heritage 2026" 
+          class="h-10 sm:h-11 md:h-10 w-auto object-contain drop-shadow-md" width="160" height="40"
+         decoding="async"/>
+      </a>
+
+      <!-- Placeholder untuk simetri di mobile -->
+      <div class="flex md:hidden w-8"></div>
+    </div>
+
+    <!-- LOWER LEVEL: Navigation Links (Desktop) -->
+    <nav class="hidden md:flex items-center justify-center space-x-8 py-2.5 text-[13px] font-montserrat-bold tracking-wider uppercase">
+      <a href="#categories" class="nav-link-bold relative py-1 group">
+        <span>Race Category</span>
+        <span class="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#085C55] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#route" class="nav-link-bold relative py-1 group">
+        <span>Rute & Track</span>
+        <span class="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#085C55] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#entitlements" class="nav-link-bold relative py-1 group">
+        <span>Race Pack</span>
+        <span class="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#085C55] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#schedule" class="nav-link-bold relative py-1 group">
+        <span>Jadwal Event</span>
+        <span class="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#085C55] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="#faq" class="nav-link-bold relative py-1 group">
+        <span>FAQ</span>
+        <span class="absolute bottom-0 left-0 w-0 h-[2.5px] bg-[#085C55] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </nav>
+
+    <!-- MOBILE MENU DRAWER (Smooth Alpine.js Collapse & Auto-Close) -->
+    <div 
+      x-show="mobileMenu" 
+      x-collapse.duration.350ms
+      x-cloak
+      @click.away="mobileMenu = false"
+      class="md:hidden border-t border-[#FDF4E3]/10 overflow-hidden bg-[#052132]/95 backdrop-blur-xl"
+    >
+      <div class="flex flex-col space-y-2 px-4 py-4 text-center text-base font-montserrat-bold tracking-wide">
+        
+        <a 
+          href="#categories" 
+          @click="mobileMenu = false" 
+          class="text-[#FDF4E3] hover:text-[#085C55] hover:bg-[#FDF4E3]/10 py-2.5 px-4 rounded-xl transition-all duration-200 active:scale-95"
+        >
+          Race Category
+        </a>
+
+        <a 
+          href="#route" 
+          @click="mobileMenu = false" 
+          class="text-[#FDF4E3] hover:text-[#085C55] hover:bg-[#FDF4E3]/10 py-2.5 px-4 rounded-xl transition-all duration-200 active:scale-95"
+        >
+          Rute & Track
+        </a>
+
+        <a 
+          href="#entitlements" 
+          @click="mobileMenu = false" 
+          class="text-[#FDF4E3] hover:text-[#085C55] hover:bg-[#FDF4E3]/10 py-2.5 px-4 rounded-xl transition-all duration-200 active:scale-95"
+        >
+          Race Pack
+        </a>
+
+        <a 
+          href="#schedule" 
+          @click="mobileMenu = false" 
+          class="text-[#FDF4E3] hover:text-[#085C55] hover:bg-[#FDF4E3]/10 py-2.5 px-4 rounded-xl transition-all duration-200 active:scale-95"
+        >
+          Jadwal Event
+        </a>
+
+        <a 
+          href="#faq" 
+          @click="mobileMenu = false" 
+          class="text-[#FDF4E3] hover:text-[#085C55] hover:bg-[#FDF4E3]/10 py-2.5 px-4 rounded-xl transition-all duration-200 active:scale-95"
+        >
+          FAQ
+        </a>
+
+        <a 
+          href="https://www.protix.id" 
+          target="_blank"
+          rel="noopener noreferrer"
+          @click="mobileMenu = false" 
+          class="mt-2 w-full py-3 rounded-xl bg-[#085C55] hover:bg-[#085C55]/80 active:scale-95 text-[#FDF4E3] font-bold text-xs tracking-widest uppercase shadow-lg shadow-[#085C55]/30 transition-all duration-200 block text-center"
+        >
+          Daftar Sekarang
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- Mobile Menu handled seamlessly by Alpine.js -->
+ <!-- Hero Banner Section (Full Width Desktop & Mobile Responsive dengan Logo Tengah) -->
+<section class="relative z-10 w-full overflow-hidden font-montserrat">
+  
+  <!-- Responsive Hero Banner (Desktop only downloads herodes.webp, Mobile only downloads heromob.webp) -->
+  <picture class="w-full">
+    <source media="(min-width: 768px)" srcset="assets/herodes.webp" width="1920" height="1080">
+    <img 
+      src="assets/heromob.webp" 
+      alt="Rawapening Run Heritage 2026 Banner" 
+      class="w-full h-auto object-cover transition-transform hover:scale-[1.005] duration-500"
+      width="750" height="1334" 
+      fetchpriority="high" 
+      decoding="async"
+    />
+  </picture>
+
+  <!-- Overlay Content Container (Logo + Clean White Glass Countdown) -->
+  <div class="absolute inset-0 flex flex-col items-center justify-center p-3 pb-6 sm:pb-12 md:pb-16 pointer-events-none space-y-3 sm:space-y-6">
+    
+    <!-- Logo (assets/logo1.webp) - Diperbesar khusus Mobile -->
+    <img 
+      src="assets/logo1.webp" 
+      alt="Rawapening Run Heritage 2026 Logo" 
+      class="h-32 sm:h-44 md:h-52 lg:h-64 w-auto object-contain drop-shadow-2xl transition-transform hover:scale-105 duration-500 pointer-events-auto" width="256" height="256"
+     decoding="async"/>
+
+   <!-- Countdown Container: Transparan Putih Bening (White Glassmorphism) -->
+<div class="pointer-events-auto bg-white/20 backdrop-blur-md px-4 py-2.5 sm:px-6 sm:py-4 rounded-2xl sm:rounded-3xl border border-white/40 shadow-[0_8px_32px_0_rgba(0,0,0,0.2)] text-center space-y-2 sm:space-y-2.5 max-w-[280px] sm:max-w-md w-full">
+  
+  <!-- Label Header Badge -->
+  <div class="flex items-center justify-center gap-2">
+    <span class="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#052132] drop-shadow-sm">
+      RACE DAY COUNTDOWN
+    </span>
+  </div>
+
+  <!-- Display Grid Block Timer -->
+  <div class="grid grid-cols-4 gap-1.5 sm:gap-2 text-[#052132]">
+    <div class="cd-card bg-white/40 backdrop-blur-sm p-1 sm:p-2.5 rounded-xl border border-white/50 shadow-inner">
+      <span id="hero-cd-days" class="cd-num font-impact text-base sm:text-2xl text-[#774805]">00</span>
+      <span class="cd-unit text-[7px] sm:text-[10px] uppercase font-bold text-[#052132]/80">HARI</span>
+    </div>
+    <div class="cd-card bg-white/40 backdrop-blur-sm p-1 sm:p-2.5 rounded-xl border border-white/50 shadow-inner">
+      <span id="hero-cd-hours" class="cd-num font-impact text-base sm:text-2xl text-[#774805]">00</span>
+      <span class="cd-unit text-[7px] sm:text-[10px] uppercase font-bold text-[#052132]/80">JAM</span>
+    </div>
+    <div class="cd-card bg-white/40 backdrop-blur-sm p-1 sm:p-2.5 rounded-xl border border-white/50 shadow-inner">
+      <span id="hero-cd-mins" class="cd-num font-impact text-base sm:text-2xl text-[#774805]">00</span>
+      <span class="cd-unit text-[7px] sm:text-[10px] uppercase font-bold text-[#052132]/80">MENIT</span>
+    </div>
+    <div class="cd-card bg-white/40 backdrop-blur-sm p-1 sm:p-2.5 rounded-xl border border-white/50 shadow-inner">
+      <span id="hero-cd-secs" class="cd-num font-impact text-base sm:text-2xl text-[#774805]">00</span>
+      <span class="cd-unit text-[7px] sm:text-[10px] uppercase font-bold text-[#052132]/80">DETIK</span>
+    </div>
+  </div>
+
+</div>
+
+</section>
+
+<!-- Running Text / Marquee Loop Banner (Connect With Us) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" width="32" height="32" loading="lazy" decoding="async" class="h-6 sm:h-8 w-auto object-contain drop-shadow" />
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">CONNECT WITH US</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section Connect With Us -->
+<section id="connect" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Connect With Us" 
+        class="w-full h-full object-cover object-center" 
+        width="750" height="1334" 
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    <div class="text-center max-w-3xl mx-auto mb-14">
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+        CONNECT <span class="text-[#774805]">WITH US</span>
+      </h2>
+      <p class="text-[#052132]/80 text-sm sm:text-base mt-3 font-normal leading-relaxed">
+        Ikuti kanal informasi resmi dan hubungi layanan pelanggan kami untuk mendapatkan kabar terbaru seputar Rawapening Run Heritage 2026.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/628112878782" target="_blank" rel="noopener noreferrer" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#25D366] hover:bg-white transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#25D366]/15 text-[#25D366] flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#052132]/60 block mb-1">Official Hotline</span>
+          <h3 class="font-impact text-xl text-[#052132] group-hover:text-[#085C55] transition-colors">WHATSAPP</h3>
+          <p class="text-xs font-semibold text-[#052132]/80 mt-1">0811-2878-782</p>
+        </div>
+        <span class="mt-5 text-[11px] font-bold uppercase tracking-wider text-[#085C55] bg-[#085C55]/10 px-4 py-1.5 rounded-full group-hover:bg-[#25D366] group-hover:text-white transition-colors">Chat Sekarang &rarr;</span>
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://www.instagram.com/rawapeningrunheritage" target="_blank" rel="noopener noreferrer" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#E1306C] hover:bg-white transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#E1306C]/15 text-[#E1306C] flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#052132]/60 block mb-1">Official Account</span>
+          <h3 class="font-impact text-xl text-[#052132] group-hover:text-[#E1306C] transition-colors">INSTAGRAM</h3>
+          <p class="text-xs font-semibold text-[#052132]/80 mt-1">@rawapeningrunheritage</p>
+        </div>
+        <span class="mt-5 text-[11px] font-bold uppercase tracking-wider text-[#085C55] bg-[#085C55]/10 px-4 py-1.5 rounded-full group-hover:bg-[#E1306C] group-hover:text-white transition-colors">Follow Kami &rarr;</span>
+      </a>
+
+      <!-- TikTok -->
+      <a href="https://www.tiktok.com/@rawapeningrunheritage" target="_blank" rel="noopener noreferrer" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#000000] hover:bg-white transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#000000]/10 text-[#052132] flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+          <i class="fa-brands fa-tiktok"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#052132]/60 block mb-1">Video & Highlights</span>
+          <h3 class="font-impact text-xl text-[#052132] group-hover:text-[#000000] transition-colors">TIKTOK</h3>
+          <p class="text-xs font-semibold text-[#052132]/80 mt-1">@rawapeningrunheritage</p>
+        </div>
+        <span class="mt-5 text-[11px] font-bold uppercase tracking-wider text-[#085C55] bg-[#085C55]/10 px-4 py-1.5 rounded-full group-hover:bg-[#000000] group-hover:text-white transition-colors">Tonton Konten &rarr;</span>
+      </a>
+
+      <!-- Facebook -->
+      <a href="http://facebook.com/rawapeningrunheritage" target="_blank" rel="noopener noreferrer" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#1877F2] hover:bg-white transition-all duration-300 group hover:-translate-y-1">
+        <div class="w-14 h-14 rounded-2xl bg-[#1877F2]/15 text-[#1877F2] flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform duration-300">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
+        <div>
+          <span class="text-[10px] font-bold uppercase tracking-widest text-[#052132]/60 block mb-1">Community Page</span>
+          <h3 class="font-impact text-xl text-[#052132] group-hover:text-[#1877F2] transition-colors">FACEBOOK</h3>
+          <p class="text-xs font-semibold text-[#052132]/80 mt-1">Rawapening Run Heritage</p>
+        </div>
+        <span class="mt-5 text-[11px] font-bold uppercase tracking-wider text-[#085C55] bg-[#085C55]/10 px-4 py-1.5 rounded-full group-hover:bg-[#1877F2] group-hover:text-white transition-colors">Kunjungi Halaman &rarr;</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Running Text / Marquee Loop Banner (Race Category) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  <!-- CSS Infinite Scroll Animation Style -->
+  
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi persis untuk efek seamless loop tanpa jeda) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE CATEGORY</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+   <!-- Custom fonts loaded via css/style.css -->
+<!-- Section Full Background Only (Desktop: assets/bgdes.webp & Mobile: assets/bgmob.webp) -->
+
+<!-- Race Category Section -->
+<section id="categories" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    
+    <!-- Section Header (Sesuai Gambar Headline) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-5xl sm:text-7xl font-impact uppercase tracking-tight leading-none">
+        <span class="text-[#774805]">RACE</span> <span class="text-[#052132]">CATEGORY</span>
+      </h2>
+    </div>
+
+    <!-- Grid 3 Cards (5K, 10K, 21K) -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch max-w-6xl mx-auto">
+      
+      <!-- Card 1: 5K -->
+<div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 rounded-3xl border-2 border-dashed border-[#774805]/40 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#774805] transition-all duration-300">
+  <div class="w-full">
+    <!-- Icon Route / Map Placeholder & Title -->
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <i class="fa-solid fa-route text-2xl text-[#774805]"></i>
+      <h3 class="font-impact text-5xl text-[#052132]">5K</h3>
+    </div>
+
+    <!-- Specifications List -->
+    <div class="space-y-4 text-xs font-montserrat text-[#052132]">
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Gender</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">MALE AND FEMALE</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Category</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">5K INDIVIDUAL</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Elevation Gain</span>
+        <strong class="font-bold text-sm">- m</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Cut Off Time (COT)</span>
+        <strong class="font-bold text-sm">1,5 JAM</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Flag Off</span>
+        <strong class="font-bold text-sm block">29 November 2026</strong>
+        <strong class="font-bold text-sm text-[#085C55]">06.00 WIB</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Water Station</span>
+        <strong class="font-bold text-sm">1</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Action & Price Section -->
+  <div class="w-full mt-8 pt-4 border-t border-[#052132]/10">
+    <!-- Registration Price -->
+    <div class="mb-3">
+      <span class="italic font-medium text-[#052132]/70 text-[11px] block">Registration Fee</span>
+      <span class="font-impact text-3xl text-[#774805] tracking-wide">Rp 150.000</span>
+    </div>
+
+    <!-- Button -->
+    <button @click="selectedCategory = '5K'; registerModal = true" class="w-full py-3 bg-[#052132] hover:bg-[#085C55] text-[#FDF4E3] font-bold text-xs uppercase tracking-widest rounded-xl transition shadow-md">
+      Daftar 5K
+    </button>
+  </div>
+</div>
+
+     <!-- Card 2: 10K -->
+<div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 rounded-3xl border-2 border-dashed border-[#774805]/40 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#774805] transition-all duration-300">
+  <div class="w-full">
+    <!-- Icon Route / Map Placeholder & Title -->
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <i class="fa-solid fa-route text-2xl text-[#774805]"></i>
+      <h3 class="font-impact text-5xl text-[#052132]">10K</h3>
+    </div>
+
+    <!-- Specifications List -->
+    <div class="space-y-4 text-xs font-montserrat text-[#052132]">
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Gender</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">MALE AND FEMALE</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Category</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">10K INDIVIDUAL</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Elevation Gain</span>
+        <strong class="font-bold text-sm">- m</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Cut Off Time (COT)</span>
+        <strong class="font-bold text-sm">2 JAM</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Flag Off</span>
+        <strong class="font-bold text-sm block">29 November 2026</strong>
+        <strong class="font-bold text-sm text-[#085C55]">06.00 WIB</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Water Station</span>
+        <strong class="font-bold text-sm">3</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Action & Price Section -->
+  <div class="w-full mt-8 pt-4 border-t border-[#052132]/10">
+    <!-- Registration Price -->
+    <div class="mb-3">
+      <span class="italic font-medium text-[#052132]/70 text-[11px] block">Registration Fee</span>
+      <span class="font-impact text-3xl text-[#774805] tracking-wide">Rp 200.000</span>
+    </div>
+
+    <!-- Button -->
+    <button @click="selectedCategory = '10K'; registerModal = true" class="w-full py-3 bg-[#052132] hover:bg-[#085C55] text-[#FDF4E3] font-bold text-xs uppercase tracking-widest rounded-xl transition shadow-md">
+      Daftar 10K
+    </button>
+  </div>
+</div>
+     <!-- Card 3: 21K -->
+<div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 rounded-3xl border-2 border-dashed border-[#774805]/40 shadow-xl flex flex-col items-center text-center justify-between hover:border-[#774805] transition-all duration-300">
+  <div class="w-full">
+    <!-- Icon Route / Map Placeholder & Title -->
+    <div class="flex items-center justify-center gap-2 mb-6">
+      <i class="fa-solid fa-route text-2xl text-[#774805]"></i>
+      <h3 class="font-impact text-5xl text-[#052132]">21K</h3>
+    </div>
+
+    <!-- Specifications List -->
+    <div class="space-y-4 text-xs font-montserrat text-[#052132]">
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Gender</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">MALE AND FEMALE</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Category</span>
+        <strong class="font-bold uppercase tracking-wider text-sm">21K INDIVIDUAL</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Elevation Gain</span>
+        <strong class="font-bold text-sm">- m</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Cut Off Time (COT)</span>
+        <strong class="font-bold text-sm">3,5 - 4 JAM</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Flag Off</span>
+        <strong class="font-bold text-sm block">29 November 2026</strong>
+        <strong class="font-bold text-sm text-[#085C55]">05.00 WIB</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Water Station</span>
+        <strong class="font-bold text-sm">7</strong>
+      </div>
+
+      <div>
+        <span class="italic font-medium text-[#052132]/70 block">Checkpoint</span>
+        <strong class="font-bold text-sm">2</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Action & Price Section -->
+  <div class="w-full mt-8 pt-4 border-t border-[#052132]/10">
+    <!-- Registration Price -->
+    <div class="mb-3">
+      <span class="italic font-medium text-[#052132]/70 text-[11px] block">Registration Fee</span>
+      <span class="font-impact text-3xl text-[#774805] tracking-wide">Rp 350.000</span>
+    </div>
+
+    <!-- Button -->
+    <button @click="selectedCategory = '21K'; registerModal = true" class="w-full py-3 bg-[#052132] hover:bg-[#085C55] text-[#FDF4E3] font-bold text-xs uppercase tracking-widest rounded-xl transition shadow-md">
+      Daftar 21K
+    </button>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Lokasi & Venue) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE </span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE </span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE </span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE </span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE UTAMA</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE UTAMA</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE UTAMA</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">LOKASI & VENUE UTAMA</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Venue & Map Section -->
+<section id="venue" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 space-y-10">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto">
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+        VENUE<br>
+        <span class="text-[#FDF4E3]">BENTENG FORT WILLEM I AMBARAWA</span>
+      </h2>
+      <p class="text-[#052132]/80 text-sm sm:text-base mt-3 font-normal leading-relaxed">
+        Saksi bisu sejarah abad ke-19 yang menjadi titik start & finish perjalanan lari peninggalan warisan budaya Rawapening Run Heritage 2026.
+      </p>
+    </div>
+
+    <!-- CARD 1: 3 PHOTO GALLERY (BARIS ATAS) -->
+    <div class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-[#052132]/10 shadow-xl space-y-4 hover:border-[#774805] transition-all duration-300">
+      
+      <div class="flex items-center justify-between border-b border-[#052132]/15 pb-3">
+        <h3 class="font-impact text-xl sm:text-2xl text-[#052132] uppercase tracking-wide">
+          FOTO VENUE
+        </h3>
+      </div>
+
+      <!-- 3 Columns Photo Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        
+       <!-- Foto 1 -->
+<div class="group">
+  <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#052132] border border-[#052132]/15 shadow-md flex items-center justify-center">
+    <img src="assets/foto1.webp" width="600" height="400" 
+      alt="Benteng Fort Willem I Ambarawa Foto 1" 
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+     loading="lazy" decoding="async"/>
+    <span class="hidden text-xs text-[#FDF4E3]/60 font-semibold p-2 text-center">Foto Benteng 1</span>
+  </div>
+</div>
+
+<!-- Foto 2 -->
+<div class="group">
+  <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#052132] border border-[#052132]/15 shadow-md flex items-center justify-center">
+    <img src="assets/foto3.webp" width="600" height="400" 
+      alt="Benteng Fort Willem I Ambarawa Foto 2" 
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+     loading="lazy" decoding="async"/>
+    <span class="hidden text-xs text-[#FDF4E3]/60 font-semibold p-2 text-center">Foto Benteng 2</span>
+  </div>
+</div>
+
+<!-- Foto 3 -->
+<div class="group">
+  <div class="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-[#052132] border border-[#052132]/15 shadow-md flex items-center justify-center">
+    <img src="assets/foto2.webp" width="600" height="400" 
+      alt="Benteng Fort Willem I Ambarawa Foto 3" 
+      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+      onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
+     loading="lazy" decoding="async"/>
+    <span class="hidden text-xs text-[#FDF4E3]/60 font-semibold p-2 text-center">Foto Benteng 3</span>
+  </div>
+</div>
+
+      </div>
+
+    </div>
+
+    <!-- CARD 2: MAPS & ADDRESS INFO (BARIS BAWAH) -->
+    <div class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-[#052132]/10 shadow-xl space-y-6 hover:border-[#085C55] transition-all duration-300">
+      
+      <!-- Header Info Badge -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#052132]/15 pb-4">
+        <div class="flex items-center gap-3">
+          <i class="fa-solid fa-location-dot text-2xl sm:text-3xl text-[#052132] flex-shrink-0"></i>
+          <div>
+            <h3 class="font-impact text-2xl sm:text-3xl text-[#052132] uppercase tracking-wide">
+              LOKASI MAPS VENUE
+            </h3>
+            <p class="text-xs text-[#052132]/70 font-semibold">
+              Jl. Fort Willem I, Bugis, Lodoyong, Kec. Ambarawa, Kabupaten Semarang, Jawa Tengah
+            </p>
+          </div>
+        </div>
+
+        <a 
+          href="https://maps.app.goo.gl/BentengFortWillemI" 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-[#052132] hover:bg-[#085C55] text-[#FDF4E3] text-xs font-bold uppercase tracking-wider transition-all duration-300 shadow-md flex-shrink-0"
+        >
+          <span>Petunjuk Arah</span>
+          <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Google Maps Embed Container -->
+      <div class="w-full h-80 sm:h-96 rounded-2xl overflow-hidden border-2 border-[#052132]/15 shadow-inner bg-[#052132] relative">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.7378279056957!2d110.4103291!3d-7.2706462!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e70819a76efa055%3A0xd35c978f41d2ea4e!2sBenteng%20Fort%20Willem%20I%20Ambarawa!5e0!3m2!1sid!2sid!4v1790793123573!5m2!1sid!2sid" 
+          class="w-full h-full border-0" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="strict-origin-when-cross-origin"
+          title="Google Maps Benteng Fort Willem I Ambarawa"
+        ></iframe>
+      </div>
+
+      <p class="text-[11px] text-[#052132]/60 italic text-center">
+        (DUMMY) * Titik kumpul utama peserta (Race Village, Drop Bag Area, & Panggung Hiburan).
+      </p>
+
+    </div>
+
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  <!-- CSS Infinite Scroll Animation Style -->
+  
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">INFORMASI RUTE</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+   <!-- Interactive Route Elevation & Map Preview Section -->
+<section id="route" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28" x-data="{ activeRouteTab: '5K' }">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Left Column: Info & Tab Selectors -->
+      <div class="lg:col-span-5 space-y-6">
+       
+        
+        <h2 class="text-4xl sm:text-5xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+          INFORMASI RUTE
+        </h2>
+        
+        <p class="text-[#052132]/80 text-sm font-normal leading-relaxed">
+          (DUMMY) Detail rute dan elevasi untuk setiap kategori akan segera dirilis secara resmi. Setiap meter lintasan dirancang aman, steril dari kendaraan bermotor, dan memanjakan para pelari.
+        </p>
+
+        <!-- Interactive Tab Selectors (3 Cards / Categories: 5K, 10K, 21K) -->
+        <div class="flex gap-2 p-1.5 bg-[#FDF4E3]/90 backdrop-blur-md rounded-2xl border border-[#052132]/10 shadow-md">
+          <button @click="activeRouteTab = '5K'" :class="activeRouteTab === '5K' ? 'bg-[#052132] text-[#FDF4E3] font-bold shadow-md' : 'text-[#052132]/70 hover:text-[#052132]'" class="flex-1 py-2.5 rounded-xl text-xs uppercase tracking-widest transition-all duration-300">5K Map</button>
+          <button @click="activeRouteTab = '10K'" :class="activeRouteTab === '10K' ? 'bg-[#052132] text-[#FDF4E3] font-bold shadow-md' : 'text-[#052132]/70 hover:text-[#052132]'" class="flex-1 py-2.5 rounded-xl text-xs uppercase tracking-widest transition-all duration-300">10K Map</button>
+          <button @click="activeRouteTab = '21K'" :class="activeRouteTab === '21K' ? 'bg-[#052132] text-[#FDF4E3] font-bold shadow-md' : 'text-[#052132]/70 hover:text-[#052132]'" class="flex-1 py-2.5 rounded-xl text-xs uppercase tracking-widest transition-all duration-300">21K Map</button>
+        </div>
+
+        <!-- Venue Badges -->
+        <div class="space-y-3 pt-2">
+          <!-- Start & Finish Venue -->
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#FDF4E3]/90 backdrop-blur-md border border-[#052132]/10 shadow-lg hover:border-[#085C55] transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#FDF4E3]/20 text-[#085C55] flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-route text-xl text-[#052132] flex-shrink-0"></i>
+            </div>
+            <div>
+              <span class="text-[10px] text-[#052132]/60 uppercase font-bold">Start & Finish Venue</span>
+              <p class="font-bold text-[#052132] text-xs sm:text-sm">Benteng Fort Willem I Ambarawa</p>
+            </div>
+          </div>
+
+          <!-- Highlight Venues -->
+          <div class="flex items-center gap-4 p-4 rounded-2xl bg-[#FDF4E3]/90 backdrop-blur-md border border-[#052132]/10 shadow-lg hover:border-[#774805] transition-all duration-300">
+            <div class="w-10 h-10 rounded-xl bg-[#FDF4E3]/20 text-[#774805] flex items-center justify-center flex-shrink-0">
+              <i class="fa-solid fa-landmark text-lg"></i>
+            </div>
+            <div>
+              <span class="text-[10px] text-[#052132]/60 uppercase font-bold">Jalur & Ikonik Venue</span>
+              <p class="font-bold text-[#052132] text-xs sm:text-sm">Yonkav Ambarawa & Danau Rawa Pening</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Route Map Coming Soon Cards (Separated by Tab: 5K, 10K, 21K) -->
+      <div class="lg:col-span-7">
+        
+        <!-- CARD 1: 5K ROUTE (COMING SOON) -->
+        <div x-show="activeRouteTab === '5K'" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-[#052132]/10 shadow-2xl relative transition-all duration-300">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <span class="text-xs text-[#085C55] font-bold uppercase tracking-widest">Kategori 5K</span>
+              <h3 class="font-impact text-2xl sm:text-3xl uppercase text-[#052132]">RUTE 5K </h3>
+            </div>
+
+          </div>
+
+          <!-- Route Description / Location Highlights -->
+          <div class="mb-4 p-4 rounded-xl bg-[#052132] text-[#FDF4E3] text-xs font-montserrat">
+            <span class="text-[#FDF4E3] font-bold uppercase block mb-1">Titik Rute Utama:</span>
+            <p><strong>(DUMMY) Start & Finish:</strong> Benteng Fort Willem I Ambarawa &bull; Melintasi Kawasan Yonkav Ambarawa &amp; Heritage Point.</p>
+          </div>
+
+          <!-- Coming Soon Graphic Placeholder -->
+          <div class="relative bg-[#052132] rounded-2xl p-6 h-72 sm:h-80 flex flex-col items-center justify-center text-center overflow-hidden border border-[#FDF4E3]/10">
+            <!-- Single Large Icon (Tanpa Background & Border) -->
+<i class="fa-solid fa-map-location-dot text-5xl sm:text-6xl text-[#085C55] mb-4 animate-pulse inline-block"></i>
+            <h4 class="font-impact text-3xl sm:text-4xl text-[#FDF4E3] uppercase tracking-wider mb-2">PETA RUTE 5K</h4>
+
+            <p class="text-[#FDF4E3]/60 text-xs mt-3 max-w-xs">Detail gpx & titik water station akan segera diumumkan.</p>
+          </div>
+        </div>
+
+        <!-- CARD 2: 10K ROUTE () -->
+        <div x-show="activeRouteTab === '10K'" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-[#052132]/10 shadow-2xl relative transition-all duration-300">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <span class="text-xs text-[#085C55] font-bold uppercase tracking-widest">Kategori 10K</span>
+              <h3 class="font-impact text-2xl sm:text-3xl uppercase text-[#052132]">RUTE 10K </h3>
+            </div>
+           
+          </div>
+
+          <!-- Route Description / Location Highlights -->
+          <div class="mb-4 p-4 rounded-xl bg-[#052132] text-[#FDF4E3] text-xs font-montserrat">
+            <span class="text-[#FDF4E3] font-bold uppercase block mb-1">Titik Rute Utama:</span>
+            <p><strong>(DUMMY) Start & Finish:</strong> Benteng Fort Willem I Ambarawa &bull; Melintasi Yonkav Ambarawa &amp; Tepian Pesisir Danau Rawa Pening.</p>
+          </div>
+
+          <!-- Coming Soon Graphic Placeholder -->
+          <div class="relative bg-[#052132] rounded-2xl p-6 h-72 sm:h-80 flex flex-col items-center justify-center text-center overflow-hidden border border-[#FDF4E3]/10">
+            <!-- Single Large Icon (Tanpa Background & Border) -->
+<i class="fa-solid fa-map-location-dot text-5xl sm:text-6xl text-[#085C55] mb-4 animate-pulse inline-block"></i>
+            <h4 class="font-impact text-3xl sm:text-4xl text-[#FDF4E3] uppercase tracking-wider mb-2">PETA RUTE 10K</h4>
+           
+            <p class="text-[#FDF4E3]/60 text-xs mt-3 max-w-xs">Detail gpx & titik water station akan segera diumumkan.</p>
+          </div>
+        </div>
+
+        <!-- CARD 3: 21K ROUTE (COMING SOON) -->
+        <div x-show="activeRouteTab === '21K'" class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 md:p-8 rounded-3xl border border-[#052132]/10 shadow-2xl relative transition-all duration-300">
+          <div class="flex justify-between items-center mb-6">
+            <div>
+              <span class="text-xs text-[#085C55] font-bold uppercase tracking-widest">Kategori 21K</span>
+              <h3 class="font-impact text-2xl sm:text-3xl uppercase text-[#052132]">RUTE 21K </h3>
+            </div>
+           
+          </div>
+
+          <!-- Route Description / Location Highlights -->
+          <div class="mb-4 p-4 rounded-xl bg-[#052132] text-[#FDF4E3] text-xs font-montserrat">
+            <span class="text-[#FDF4E3] font-bold uppercase block mb-1">Titik Rute Utama:</span>
+            <p><strong>(DUMMY) Start & Finish:</strong> Benteng Fort Willem I Ambarawa &bull; Mengelilingi Yonkav Ambarawa &amp; Panoramik Danau Rawa Pening Circuit.</p>
+          </div>
+
+          <!-- Coming Soon Graphic Placeholder -->
+          <div class="relative bg-[#052132] rounded-2xl p-6 h-72 sm:h-80 flex flex-col items-center justify-center text-center overflow-hidden border border-[#FDF4E3]/10">
+           <!-- Single Large Icon (Tanpa Background & Border) -->
+<i class="fa-solid fa-map-location-dot text-5xl sm:text-6xl text-[#085C55] mb-4 animate-pulse inline-block"></i>
+            <h4 class="font-impact text-3xl sm:text-4xl text-[#FDF4E3] uppercase tracking-wider mb-2">PETA RUTE 21K</h4>
+            <p class="text-[#FDF4E3]/60 text-xs mt-3 max-w-xs">Detail gpx & titik water station akan segera diumumkan.</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  <!-- CSS Infinite Scroll Animation Style -->
+  
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">RACE PACK & ENTITLEMENTS</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+   <!-- Entitlements Section (Visual Medali & Jersey Showcase) -->
+<section id="entitlements" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+     
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+        RACE PACK 
+      </h2>
+      <p class="text-[#052132]/80 text-sm sm:text-base mt-3 font-normal">
+        Setiap pendaftar resmi berhak atas perlengkapan lari eksklusif dengan desain warisan budaya.
+      </p>
+    </div>
+
+  <!-- Visual Showcase Grid (Medali Atas & Jersey + Size Chart Bawah) -->
+<div class="space-y-10">
+  
+  <!-- ROW 1: FINISHER MEDAL 3D (BARIS ATAS - Compact & Centered di Desktop) -->
+  <div class="max-w-2xl mx-auto bg-[#FDF4E3]/90 backdrop-blur-md p-5 sm:p-7 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col items-center justify-center hover:border-[#774805] transition-all duration-300 group">
+    <div class="w-full text-center">
+      <h3 class="font-impact text-2xl sm:text-3xl text-[#052132] tracking-wide mb-3 uppercase">
+        MEDALI FINISHER
+      </h3>
+      
+      <!-- Medal Image Display -->
+      <div class="bg-[#052132] p-4 sm:p-6 rounded-2xl border border-[#FDF4E3]/10 flex items-center justify-center relative overflow-hidden group/medal">
+        <div class="relative w-full h-56 sm:h-72 flex items-center justify-center p-2">
+          <img src="assets/medali.webp" width="400" height="400" 
+            alt="Medali Finisher Rawapening Run Heritage" 
+            class="max-h-full w-auto object-contain drop-shadow-[0_15px_25px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover/medal:scale-110 group-hover/medal:rotate-3"
+           loading="lazy" decoding="async"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 2: OFFICIAL RUNNING JERSEY & SIZE CHART (BARIS BAWAH) -->
+  <div class="bg-[#FDF4E3]/90 backdrop-blur-md p-6 sm:p-8 rounded-3xl border border-[#052132]/10 shadow-xl hover:border-[#085C55] transition-all duration-300">
+    
+    <h3 class="font-impact text-3xl sm:text-4xl text-[#052132] tracking-wide mb-6 text-center uppercase">
+      JERSEY SAGA & SIZE CHART
+    </h3>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      
+      <!-- KOLOM KIRI: Jersey Display (Depan & Belakang) -->
+      <div class="lg:col-span-6 bg-[#FDF4E3] p-4 sm:p-6 rounded-2xl border border-[#FDF4E3]/10">
+        <div class="grid grid-cols-2 gap-4">
+          <!-- Depan -->
+          <div class="flex flex-col items-center group/item">
+            <div class="relative w-full aspect-square flex items-center justify-center p-2">
+              <img src="assets/jerseydepan.webp" width="400" height="400" 
+                alt="Jersey Tampak Depan" 
+                class="max-h-full w-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover/item:scale-105"
+               loading="lazy" decoding="async"/>
+            </div>
+            <span class="mt-2 text-[11px] font-bold uppercase tracking-widest text-[#FDF4E3] bg-[#052132] px-3 py-1 rounded-full shadow-md text-center">
+              Tampak Depan
+            </span>
+          </div>
+
+          <!-- Belakang -->
+          <div class="flex flex-col items-center group/item">
+            <div class="relative w-full aspect-square flex items-center justify-center p-2">
+              <img src="assets/jerseybelakang.webp" width="400" height="400" 
+                alt="Jersey Tampak Belakang" 
+                class="max-h-full w-auto object-contain drop-shadow-2xl transition-transform duration-500 group-hover/item:scale-105"
+               loading="lazy" decoding="async"/>
+            </div>
+            <span class="mt-2 text-[11px] font-bold uppercase tracking-widest text-[#FDF4E3] bg-[#052132] px-3 py-1 rounded-full shadow-md text-center">
+              Tampak Belakang
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOLOM KANAN: Size Chart Table -->
+      <div class="lg:col-span-6 space-y-3 font-montserrat">
+        <div class="flex items-center justify-between border-b border-[#052132]/15 pb-2">
+          <span class="font-impact text-xl text-[#052132] uppercase">PANDUAN UKURAN (CM)</span>
+          <span class="text-[10px] font-bold text-[#085C55] bg-[#085C55]/10 px-2.5 py-1 rounded-full">
+            Toleransi 1 - 2 cm
+          </span>
+        </div>
+
+        <!-- HTML Table Size Chart -->
+        <div class="overflow-x-auto rounded-xl border border-[#052132]/20 shadow-sm">
+          <table class="w-full text-center text-xs text-[#052132]">
+            <thead class="bg-[#052132] text-[#FDF4E3] text-md uppercase tracking-widest">
+              <tr>
+                <th class="py-2.5 px-3 border-b border-[#FDF4E3]/10">SIZE</th>
+                <th class="py-2.5 px-3 border-b border-[#FDF4E3]/10">LEBAR (CM)</th>
+                <th class="py-2.5 px-3 border-b border-[#FDF4E3]/10">PANJANG (CM)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-[#052132]/10 bg-white/60 font-medium">
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">XS</td><td>46</td><td>65</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">S</td><td>48</td><td>67</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">M</td><td>50</td><td>69</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">L</td><td>52</td><td>71</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">XL</td><td>54</td><td>73</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">XXL</td><td>56</td><td>75</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">3XL</td><td>58</td><td>77</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">4XL</td><td>60</td><td>79</td></tr>
+              <tr class="hover:bg-[#085C55]/10 transition"><td class="py-1.5 font-bold">5XL</td><td>62</td><td>80</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="text-[10px] text-[#052132]/60 italic text-right">
+          * Size Chart ASKONVEKSI &bull; Harap ukur lebar & panjang kaos sebelum memilih ukuran.
+        </p>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+       
+
+    </div>
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  <!-- CSS Infinite Scroll Animation Style -->
+  
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">GUEST STAR</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Guest Star Section -->
+<section id="guest-star" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+        GUEST <span class="text-[#085C55]">STAR</span>
+      </h2>
+      <p class="text-[#052132]/80 text-sm sm:text-base mt-3 font-normal">
+        Penampilan bintang tamu spesial yang akan memeriahkan panggung hiburan Rawapening Run Heritage 2026.
+      </p>
+    </div>
+
+    <!-- Guest Star Card Container (Single Coming Soon Card) -->
+    <div class="max-w-md mx-auto">
+      <div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 sm:p-10 rounded-3xl border border-[#052132]/10 shadow-2xl flex flex-col items-center text-center justify-between hover:border-[#085C55] transition-all duration-300 group relative overflow-hidden">
+        <!-- Coming Soon Silhouette Graphic -->
+        <div class="w-full bg-[#052132] rounded-2xl p-8 text-center text-[#FDF4E3] border border-[#FDF4E3]/10 mb-6 flex flex-col items-center justify-center relative overflow-hidden">
+          
+         <span class="font-impact text-7xl sm:text-8xl text-[#FDF4E3] mb-4 animate-pulse block leading-none select-none">
+  ?
+</span>
+
+          <h3 class="font-impact text-3xl sm:text-4xl uppercase tracking-wider text-[#FDF4E3] mb-2">
+            COMING SOON
+          </h3>
+
+          <span class="px-4 py-1 rounded-full bg-[#085C55] text-[#FDF4E3] text-[10px] font-bold uppercase tracking-widest shadow-md">
+            To Be Announced
+          </span>
+        </div>
+
+        <!-- Description Footnote -->
+        <p class="text-xs text-[#052132]/75 font-normal leading-relaxed">
+          Nantikan pengumuman resmi mengenai pengisi acara &amp; bintang tamu utama kami dalam waktu dekat.
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/15 font-impact">
+  
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-8 sm:gap-12 pr-8 sm:pr-12">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3]">JADWAL & RUNDOWN RESMI</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+   <!-- Schedule Rundown Section (Coming Soon Version) -->
+<section id="schedule" class="relative w-full overflow-hidden font-montserrat text-[#052132]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgdes.webp | Mobile: bgmob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgdes.webp">
+      <img 
+        src="assets/bgmob.webp" 
+        alt="Background Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+     
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#052132] leading-none">
+        JADWAL & <span class="text-[#085C55]">RUNDOWN RESMI</span>
+      </h2>
+      <p class="text-[#052132]/80 text-sm sm:text-base mt-3 font-normal">
+        Rangkaian kegiatan & rundown detail acara Rawapening Run Heritage 2026 akan segera dirilis.
+      </p>
+    </div>
+
+    <!-- Grid 2 Cards (RPC & Race Day - Coming Soon State) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      
+    <!-- Card 1: Race Pack Collection (RPC) Day - Coming Soon -->
+<div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 rounded-3xl border border-[#052132]/10 shadow-xl flex flex-col justify-between hover:border-[#085C55] transition-all duration-300 group">
+  <div>
+    <!-- Header Info -->
+    <div class="flex items-center gap-4 mb-6 border-b border-[#052132]/10 pb-4">
+      
+      <!-- Icon Tanpa Background & Border (Besar & Warna #052132) -->
+      <i class="fa-solid fa-box-archive text-3xl sm:text-4xl text-[#052132] flex-shrink-0"></i>
+
+      <div>
+        <span class="text-xs text-[#085C55] font-bold uppercase tracking-wider block">Pre-Event Activity</span>
+        <h3 class="font-impact text-2xl text-[#052132] uppercase tracking-wide">RACE PACK COLLECTION (RPC)</h3>
+      </div>
+    </div>
+
+    <!-- Coming Soon Inner Container -->
+    <div class="bg-[#052132] rounded-2xl p-6 text-center text-[#FDF4E3] border border-[#FDF4E3]/10 my-4 space-y-3">
+      <div class="w-12 h-12 rounded-full bg-[#052132]/30 border border-[#052132]/50 flex items-center justify-center mx-auto text-[#FDF4E3] text-xl animate-pulse">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+      </div>
+      <h4 class="font-impact text-3xl uppercase tracking-wider text-[#FDF4E3]">COMING SOON</h4>
+      <p class="text-xs text-[#FDF4E3]/70 font-normal leading-relaxed max-w-xs mx-auto">
+        Tanggal pelaksanaan, lokasi pengambilan race pack, serta persyaratan e-voucher akan diumumkan secara berkala.
+      </p>
+    </div>
+  </div>
+
+  <div class="pt-4 border-t border-[#052132]/10 flex items-center justify-between text-xs font-semibold text-[#052132]/70">
+    <span>*Menunggu Pengumuman</span>
+  
+  </div>
+</div>
+
+      <!-- Card 2: Race Day Execution - Coming Soon -->
+      <div class="bg-[#FDF4E3]/90 backdrop-blur-md p-8 rounded-3xl border-2 border-[#085C55] shadow-2xl relative overflow-hidden flex flex-col justify-between group">
+        <div class="absolute top-0 right-0 bg-[#085C55] text-[#FDF4E3] text-[10px] font-bold px-4 py-1.5 rounded-bl-xl uppercase tracking-widest shadow-md">
+          MAIN EVENT
+        </div>
+
+        <div>
+          <!-- Header Info -->
+          <div class="flex items-center gap-4 mb-6 border-b border-[#052132]/10 pb-4">
+           <!-- Flag Checkered Icon (Tanpa Background & Border, Warna #FDF4E3) -->
+<i class="fa-solid fa-flag-checkered text-3xl sm:text-4xl text-[#052132] flex-shrink-0"></i>
+            <div>
+              <h3 class="font-impact text-2xl text-[#052132] uppercase tracking-wide">RACE DAY </h3>
+            </div>
+          </div>
+
+          <!-- Coming Soon Inner Container -->
+          <div class="bg-[#052132] rounded-2xl p-6 text-center text-[#FDF4E3] border border-[#FDF4E3]/10 my-4 space-y-3">
+            <div class="w-12 h-12 rounded-full bg-[#052132]/30 border border-[#052132]/50 flex items-center justify-center mx-auto text-[#FDF4E3] text-xl animate-pulse">
+              <i class="fa-solid fa-stopwatch"></i>
+            </div>
+            <h4 class="font-impact text-3xl uppercase tracking-wider text-[#FDF4E3]">COMING SOON</h4>
+            <p class="text-xs text-[#FDF4E3]/70 font-normal leading-relaxed max-w-xs mx-auto">
+              Jadwal jam flag-off resmi per kategori (5K, 10K, 21K) serta tata tertib panggung selebrasi akan segera diterbitkan.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-[#052132]/10 flex items-center justify-between text-xs font-semibold text-[#052132]/70">
+          <span>*Menunggu Pengumuman</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute - Forest Green #085C55) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/20 font-impact">
+  
+
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">PERTANYAAN UMUM (FAQ)</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+   <!-- FAQ Section (Desktop: bgbirudes.webp | Mobile: bgbirumob.webp) -->
+<section id="faq" class="relative w-full overflow-hidden font-montserrat text-[#FDF4E3]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgbirudes.webp | Mobile: bgbirumob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgbirudes.webp">
+      <img 
+        src="assets/bgbirumob.webp" 
+        alt="Background FAQ Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28" x-data="{ faqOpen: null }">
+    
+    <!-- Section Header -->
+    <div class="text-center mb-16">
+      <span class="text-[#085C55] font-bold text-xs uppercase tracking-widest bg-[#FDF4E3] px-4 py-1.5 rounded-full inline-block border border-[#FDF4E3]/30 shadow-sm mb-3">
+        Bantuan & Informasi
+      </span>
+      <h2 class="text-4xl sm:text-6xl font-impact uppercase tracking-tight text-[#FDF4E3] leading-none">
+        PERTANYAAN UMUM <span class="text-[#FDF4E3]">(FAQ)</span>
+      </h2>
+    </div>
+
+    <!-- Accordion List -->
+    <div class="space-y-4">
+      
+      <!-- FAQ Item 1 -->
+      <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
+        <button type="button" @click="faqOpen = (faqOpen === 1 ? null : 1)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
+          <span>(DUMMY) Apakah seluruh finisher berhak mendapatkan medali?</span>
+          <i class="fa-solid text-[#FDF4E3] transition-transform duration-300 flex-shrink-0" :class="faqOpen === 1 ? 'fa-chevron-up text-[#774805]' : 'fa-chevron-down'"></i>
+        </button>
+        <div x-show="faqOpen === 1" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
+          (DUMMY) Ya, seluruh peserta yang menyelesaikan lomba lari sebelum batas Cut Off Time (COT) resmi berhak atas Medali Finisher eksklusif.
+        </div>
+      </div>
+
+      <!-- FAQ Item 2 -->
+      <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
+        <button type="button" @click="faqOpen = (faqOpen === 2 ? null : 2)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
+          <span>(DUMMY) Apakah tiket pendaftaran dapat dipindahtangankan?</span>
+          <i class="fa-solid text-[#FDF4E3] transition-transform duration-300 flex-shrink-0" :class="faqOpen === 2 ? 'fa-chevron-up text-[#774805]' : 'fa-chevron-down'"></i>
+        </button>
+        <div x-show="faqOpen === 2" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
+          (DUMMY) Pendaftaran bersifat personal dan tidak dapat dipindahtangankan demi alasan keamanan medis serta keakuratan sistem timing chip.
+        </div>
+      </div>
+
+      <!-- FAQ Item 3 -->
+      <div class="bg-[#052132]/90 rounded-2xl overflow-hidden border border-[#FDF4E3]/20 shadow-xl transition-colors duration-300 hover:border-[#FDF4E3]/40">
+        <button type="button" @click="faqOpen = (faqOpen === 3 ? null : 3)" class="w-full text-left p-6 font-bold text-[#FDF4E3] text-sm sm:text-base flex justify-between items-center focus:outline-none gap-4">
+          <span>(DUMMY) Di mana lokasi penitipan barang (Drop Bag) peserta?</span>
+          <i class="fa-solid text-[#FDF4E3] transition-transform duration-300 flex-shrink-0" :class="faqOpen === 3 ? 'fa-chevron-up text-[#774805]' : 'fa-chevron-down'"></i>
+        </button>
+        <div x-show="faqOpen === 3" x-collapse x-cloak class="px-6 pb-6 text-xs sm:text-sm text-[#FDF4E3]/80 leading-relaxed border-t border-[#FDF4E3]/10 pt-4 font-normal">
+          (DUMMY) Fasilitas Drop Bag gratis disediakan di venue area lomba mulai pendaftaran dibuka hingga seluruh rangkaian acara berakhir.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Running Text / Marquee Loop Banner (Informasi Rute - Forest Green #085C55) -->
+<div class="relative w-full bg-[#052132] overflow-hidden py-3 sm:py-4 border-y border-[#FDF4E3]/20 font-impact">
+  
+
+
+  <!-- Marquee Running Container -->
+  <div class="animate-marquee flex items-center whitespace-nowrap">
+    
+    <!-- BLOCK 1 -->
+    <div class="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/protix.putih.webp" alt="Protix Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="112" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/protix.putih.webp" alt="Protix Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="112" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+    </div>
+
+    <!-- BLOCK 2 (Duplikasi untuk efek seamless loop) -->
+    <div class="flex items-center gap-10 sm:gap-14 pr-10 sm:pr-14">
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/protix.putih.webp" alt="Protix Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="112" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/logo2.webp" alt="Rawapening Run Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="32" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+
+      <div class="inline-flex items-center justify-center gap-4 sm:gap-5">
+        <img src="assets/protix.putih.webp" alt="Protix Logo" class="h-6 sm:h-8 w-auto object-contain drop-shadow my-auto shrink-0" width="112" height="32"  loading="lazy" decoding="async"/>
+        <span class="text-xl sm:text-2xl uppercase tracking-wider text-[#FDF4E3] leading-none flex items-center translate-y-[-1px] pl-1">OFFICIAL REGISTRATION
+& WEBSITE DEVELOPED BY</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- Official Registration & Web Development Section -->
+<section class="relative w-full overflow-hidden font-montserrat text-[#FDF4E3]">
+  
+  <!-- BACKGROUND LAYER (Desktop: bgbirudes.webp | Mobile: bgbirumob.webp) -->
+  <div class="absolute inset-0 z-0">
+    <picture class="w-full h-full">
+      <source media="(min-width: 768px)" srcset="assets/bgbirudes.webp">
+      <img 
+        src="assets/bgbirumob.webp" 
+        alt="Background FAQ Rawapening Run Heritage 2026" 
+        class="w-full h-full object-cover object-center"
+        width="750" height="1334"
+        loading="lazy" decoding="async"
+      />
+    </picture>
+  </div>
+
+  <!-- CONTENT LAYER -->
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
+    <div class="flex flex-col items-center text-center">
+      
+      <!-- Official Registration Box -->
+      <div id="register" class="w-full max-w-2xl bg-[#052132]/85 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-[#FDF4E3]/20 shadow-2xl space-y-8">
+        
+        <!-- Badge Header -->
+        <div>
+          <span class="text-[#085C55] font-bold text-xs uppercase tracking-widest bg-[#FDF4E3] px-4 py-1.5 rounded-full inline-block border border-[#FDF4E3]/30 shadow-sm">
+            Pendaftaran Resmi
+          </span>
+        </div>
+
+        <h2 class="text-3xl sm:text-5xl font-impact uppercase tracking-tight text-[#FDF4E3] leading-none">
+          OFFICIAL REGISTRATION <br>
+          <span class="text-[#774805]">& WEBSITE DEVELOPED BY</span>
+        </h2>
+
+        <p class="text-[#FDF4E3]/80 text-xs sm:text-sm leading-relaxed font-normal max-w-lg mx-auto">
+          Dapatkan slot lari Anda secara aman dan terverifikasi melalui platform tiket resmi partner kami.
+        </p>
+
+        <!-- Large Clickable Protix Logo -->
+        <div class="pt-2 pb-4">
+          <a 
+            href="https://protix.id" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="inline-block group transition-transform duration-300 hover:scale-105 active:scale-95"
+            aria-label="Protix.id Official Website"
+          >
+            <img src="assets/protix.putih.webp" alt="PROTIX.ID Logo" class="h-20 sm:h-24 md:h-28 w-auto mx-auto object-contain drop-shadow-[0_10px_20px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:drop-shadow-[0_15px_30px_rgba(8,92,85,0.5)]" width="224" height="64"
+             loading="lazy" decoding="async"/>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+   
+
+    <!-- Footer -->
+    <footer class="bg-navy border-t border-white/10 pt-20 pb-12 relative z-10 text-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+                
+                <div class="md:col-span-5 space-y-4">
+                    <div class="flex items-center gap-3">
+                        <a href="#home" class="flex items-center gap-3">
+  <img src="assets/logo2.webp" alt="Logo Rawapening Run Heritage 2026" class="h-10 sm:h-12 w-auto object-contain drop-shadow-md" width="48" height="48"
+   loading="lazy" decoding="async"/>
+</a>
+                    </div>
+                    <p class="text-cream/60 text-xs sm:text-sm max-w-sm leading-relaxed">
+                        (DUMMY) Ajang olahraga lari warisan budaya terbesar di Ambarawa & Danau Rawa Pening, Jawa Tengah. Menyatukan sport, tourism, and heritage conservation.
+                    </p>
+                    <div class="flex gap-3 pt-2">
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-cream hover:bg-teal transition"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-cream hover:bg-teal transition"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-cream hover:bg-teal transition"><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="md:col-span-3 space-y-3 text-xs sm:text-sm">
+                    <h4 class="font-display text-lg text-teal uppercase tracking-wider">Navigasi</h4>
+                    <ul class="space-y-2 text-cream/70">
+                        <li><a href="#about" class="hover:text-cream transition">Tentang Event</a></li>
+                        <li><a href="#categories" class="hover:text-cream transition">Race Category</a></li>
+                        <li><a href="#route" class="hover:text-cream transition">Peta Rute & Elevasi</a></li>
+                        <li><a href="#entitlements" class="hover:text-cream transition">Race Pack & Entitlements</a></li>
+                        <li><a href="#faq" class="hover:text-cream transition">FAQ Pusat Bantuan</a></li>
+                    </ul>
+                </div>
+
+                <div class="md:col-span-4 space-y-3 text-xs sm:text-sm">
+                    <h4 class="font-display text-lg text-amber uppercase tracking-wider">Sekretariat Panitia</h4>
+                    <p class="text-cream/70">Alamat : *********</p>
+                    <p class="text-cream/70">Email: <span class="text-cream font-semibold">*********</span></p>
+                    <p class="text-cream/70">Hotline WA: <span class="text-cream font-semibold">+62 *********
+*********</span></p>
+                </div>
+
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-cream/50 gap-4">
+                <p>&copy; 2026 Rawapening Run Heritage. All Rights Reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-cream">Syarat & Ketentuan</a>
+                    <a href="#" class="hover:text-cream">Kebijakan Privasi</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+   <!-- Countdown initialized via js/countdown.js (deferred) -->
+<!-- Floating CTA Ticket Registration (Centered Bottom dengan Animasi Awan/Floating) -->
+<div class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center pointer-events-auto animate-cloud-float">
+  
+  <!-- Sub-label Atas -->
+  <span class="text-[10px] sm:text-[11px] font-impact uppercase tracking-[0.2em] text-[#FDF4E3] drop-shadow-md mb-1.5 select-none">
+    BUY TICKET ONLY ON <strong class="font-normal">PROTIX.ID</strong>
+  </span>
+
+  <!-- Button Utama (Hover BG: #87CEEB & Hover Text/Icon: #052132) -->
+  <a 
+    href="https://protix.id/rawapeningrunheritage" 
+    target="_blank" 
+    rel="noopener noreferrer" 
+    class="flex items-center justify-center gap-3 px-6 sm:px-8 py-3.5 sm:py-4 rounded-3xl sm:rounded-[2rem] bg-[#052132] hover:bg-[#87CEEB] text-[#FDF4E3] hover:text-[#052132] font-impact text-sm sm:text-base tracking-wider shadow-[0_15px_30px_rgba(0,0,0,0.4)] border border-white/60 transition-all duration-300 hover:scale-105 active:scale-95 group"
+    aria-label="Beli Tiket Lari Rawapening Run Heritage"
+  >
+    <!-- Icon Tiket -->
+    <i class="fa-solid fa-ticket text-lg sm:text-xl text-[#FDF4E3] group-hover:text-[#052132] group-hover:-rotate-12 transition-all duration-300"></i>
+    
+    <!-- Teks Tombol -->
+    <span class="uppercase leading-none">BELI TIKET SEKARANG</span>
+    
+    <!-- Icon Panah Kanan -->
+    <i class="fa-solid fa-arrow-right text-base sm:text-lg text-[#FDF4E3] group-hover:text-[#052132] group-hover:translate-x-1 transition-all duration-300"></i>
+  </a>
+
+</div>
+
+<!-- CSS Animation Keyframes for Cloud Floating Effect -->
+
+
+    <!-- High-Performance Deferred Scripts (Loaded after initial visual paint) -->
+    <script defer src="js/alpine-collapse.min.js"></script>
+    <script defer src="js/alpine.min.js"></script>
+    <script defer src="js/countdown.js"></script>
+</body>
+</html>

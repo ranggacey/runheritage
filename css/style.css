@@ -1,0 +1,234 @@
+/* ==========================================
+   Rawapening Run Heritage 2026
+   Consolidated Styles
+   ========================================== */
+
+/* Font Face Declarations */
+@font-face {
+    font-family: 'ImpactCustom';
+    src: url('../font/impact.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MontserratCustom';
+    src: url('../font/Montserrat-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MontserratBold';
+    src: url('../font/Montserrat-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MontserratCustom';
+    src: url('../font/Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Custom Utility Classes for Fonts */
+.font-impact {
+    font-family: 'ImpactCustom', Impact, sans-serif;
+}
+
+.font-montserrat {
+    font-family: 'MontserratCustom', 'Montserrat', sans-serif;
+}
+
+.font-montserrat-bold {
+    font-family: 'MontserratBold', 'MontserratCustom', 'Montserrat', sans-serif !important;
+    font-weight: bold;
+}
+
+[x-cloak] { display: none !important; }
+
+body {
+    background-color: #052132;
+    color: #FDF4E3;
+    font-family: 'MontserratCustom', 'Montserrat', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Headings Default Font */
+h1, h2, h3, h4, h5, h6, .font-display {
+    font-family: 'ImpactCustom', Impact, sans-serif;
+}
+
+/* Glassmorphism Panels */
+.glass-navy {
+    background: rgba(5, 33, 50, 0.72);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(253, 244, 227, 0.12);
+}
+
+.glass-card {
+    background: linear-gradient(135deg, rgba(8, 92, 85, 0.15) 0%, rgba(5, 33, 50, 0.65) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(253, 244, 227, 0.12);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.glass-cream {
+    background: rgba(253, 244, 227, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(8, 92, 85, 0.2);
+    color: #052132;
+}
+
+.glass-amber {
+    background: linear-gradient(135deg, rgba(119, 72, 5, 0.35) 0%, rgba(5, 33, 50, 0.8) 100%);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(119, 72, 5, 0.4);
+}
+
+.text-outline {
+    -webkit-text-stroke: 1.5px #FDF4E3;
+    color: transparent;
+}
+
+.text-outline-teal {
+    -webkit-text-stroke: 1.5px #085C55;
+    color: transparent;
+}
+
+/* Custom glow borders on hover */
+.hover-glow-teal {
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.hover-glow-teal:hover {
+    border-color: rgba(8, 92, 85, 0.8);
+    box-shadow: 0 0 30px rgba(8, 92, 85, 0.35);
+    transform: translateY(-4px);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #052132; }
+::-webkit-scrollbar-thumb { background: #085C55; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #774805; }
+
+/* Number Animation */
+@keyframes slideInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-number-right {
+    display: block !important;
+    animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Countdown Timer Fixed Vertical Stacking */
+.cd-card {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.cd-num {
+    display: block !important;
+    line-height: 1 !important;
+}
+
+.cd-unit {
+    display: block !important;
+    line-height: 1 !important;
+    margin-top: 4px !important;
+}
+
+/* Navigation Links High Legibility & Boldness */
+.nav-link-bold {
+    font-family: 'MontserratBold', 'MontserratCustom', 'Montserrat', sans-serif !important;
+    font-weight: 700 !important;
+    color: #052132 !important;
+    letter-spacing: 0.05em;
+    transition: color 0.25s ease;
+}
+
+.nav-link-bold:hover {
+    color: #085C55 !important;
+}
+
+/* Marquee Animation */
+@keyframes marquee {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee 20s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Floating CTA Cloud Animation */
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translate(-50%, 0px);
+    }
+    50% {
+        transform: translate(-50%, -12px);
+    }
+}
+
+.animate-cloud-float {
+    animation: cloudFloat 4s ease-in-out infinite;
+}
+
+/* Connect With Us Section Supporting Styles */
+@media (min-width: 640px) {
+    .sm\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
+@media (min-width: 1024px) {
+    .lg\:grid-cols-4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+}
+.w-14 { width: 3.5rem !important; }
+.h-14 { height: 3.5rem !important; }
+.text-3xl { font-size: 1.875rem !important; line-height: 2.25rem !important; }
+.mb-14 { margin-bottom: 3.5rem !important; }
+.gap-6 { gap: 1.5rem !important; }
+.hover\:-translate-y-1:hover {
+    transform: translateY(-4px) !important;
+}
+.group:hover .group-hover\:scale-110 {
+    transform: scale(1.1) !important;
+}
+.hover\:border-\[\#25D366\]:hover { border-color: #25D366 !important; }
+.hover\:border-\[\#E1306C\]:hover { border-color: #E1306C !important; }
+.hover\:border-\[\#000000\]:hover { border-color: #000000 !important; }
+.hover\:border-\[\#1877F2\]:hover { border-color: #1877F2 !important; }
+.group:hover .group-hover\:bg-\[\#25D366\] { background-color: #25D366 !important; }
+.group:hover .group-hover\:bg-\[\#E1306C\] { background-color: #E1306C !important; }
+.group:hover .group-hover\:bg-\[\#000000\] { background-color: #000000 !important; }
+.group:hover .group-hover\:bg-\[\#1877F2\] { background-color: #1877F2 !important; }
+.group:hover .group-hover\:text-white { color: #ffffff !important; }
